@@ -24,7 +24,22 @@ div.box {
 	background: #e1f6ff;
 	line-height: 26px;
 	font-weight: normal;
+
+
 }
+
+	div.box i.icon-building, 
+	div.box i.icon-home {
+		float: left;
+		margin-left: 17px;
+	}
+	
+	div.box i.icon-user, 
+	div.box i.icon-group {
+		float: right;
+		margin-right: 17px;
+	}
+
 
 section {
 	display: block;
