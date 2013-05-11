@@ -26,8 +26,76 @@
 	</script>
 	<!-- End Google Analytics -->
 
+	<!-- Mouse Tracking -->
+	<script type="text/javascript">
+	document.onmousemove = mouseMove; 
+	function mouseMove(ev){ 
+		ev = ev || window.event; //firefox compatibility
+		var mousePos = mouseCoords(ev);
+		//do stuff with the mouse position
+		SetValues(mousePos);
+	} 
+	
+	function mouseCoords(ev){ 
+		if(ev.pageX || ev.pageY){ 
+		return {x:ev.pageX, y:ev.pageY}; 
+		} 
+		return { 
+		x:ev.clientX + document.body.scrollLeft - document.body.clientLeft, 
+		y:ev.clientY + document.body.scrollTop  - document.body.clientTop 
+		};
+	} 
+	
+	function SetValues(mousePos){ 
+//     var picWrapper = document.getElementById('myHead');
+//     var picWrapperSize = {width:parseInt(picWrapper.style.width), height:parseInt(picWrapper.style.height)};
+//     var picPos = {
+//                 x:picWrapper.offsetLeft+picWrapperSize.width/2, 
+//                 y:picWrapper.offsetTop+picWrapperSize.height/2
+//                 };
+//     var picPosS = 'Picture : X=' + picPos.x +  '\t Y=' + picPos.y;
+//     document.getElementById('DEBUG_picCoord').innerHTML = picPosS; 
+//     var s = 'Mouse : X=' + mousePos.x +  '\t Y=' + mousePos.y ;
+//     document.getElementById('DEBUG_divCoord').innerHTML = s;
+		HandlePicChange('myHead', mousePos);   
+	}  
+	
+	
+	//image layout referencenum_xref_yref.png
+	//xref = {left right straight}
+	//yref = up down straight
+	function HandlePicChange(picWrapperId, mousePos){ 
+		var picWrapper = document.getElementById(picWrapperId);
+		var picSize = {width:parseInt(picWrapper.style.width), height:parseInt(picWrapper.style.height)};
+		var picPos = {x:picWrapper.offsetLeft+picSize.width/2,  y:picWrapper.offsetTop+picSize.height/2};
+		var picImageURL = 'images/test_img/0001';  //start with the base name of your url
+		if((picPos.x - picSize.width/2) > mousePos.x) {
+			picImageURL = picImageURL + '_left';
+		} else if((picPos.x + picSize.width/2) < mousePos.x) {
+			picImageURL = picImageURL + '_right';
+		} else {
+			picImageURL = picImageURL + '_straight';
+		}
+		if((picPos.y - picSize.height/2 ) > mousePos.y) {
+			picImageURL = picImageURL + '_up.png';
+		} else if((picPos.y + picSize.height/2) < mousePos.y) {
+			picImageURL = picImageURL + '_down.png';
+		}else {
+			picImageURL = picImageURL + '_straight.png';
+		}
+		picWrapper.style.backgroundImage = "url('"+picImageURL+"')";  //set your finished url to the background
+	}
+	
+	function PageLoaded(){
+	
+	}
+	</script>
+	<!-- End of Mouse Tracking -->
   </head>
-  <body>
+  <body onmousemove=SetValues(event) onload=PageLoaded()>
+    <div id="DEBUG_divCoord"></div>
+	<div id="DEBUG_picCoord"></div>
+
 	<section>
 		<div class="box">
 			<a href="#"><div style="width:100%;height:100%;">
@@ -61,11 +129,10 @@
 			</div></a>
 		</div>
 		<div class="box">
-			<br/>
-			<p>Chirp</p>
-			<i class="icon-twitter"></i>
+			<a href="#">
+				<div id="myHead" style="background:#889;width:100%;height:100%;background-size:100px 100px;background-repeat:no-repeat;"></div>
+			</a>
 		</div>
-		
 		<div class="box">
 			<a href="#"><div style="width:100%;height:100%;">
 			<br/>
