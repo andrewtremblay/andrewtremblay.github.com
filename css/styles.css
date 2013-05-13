@@ -5,58 +5,39 @@ body {
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
-  
-
 }
 
+section {
+	display: block;
+	overflow: auto;
+	max-width: 510px;  	
+  	margin-left: auto; 
+  	margin-right: auto; 
+}
 
 div.box {
 	display: block;
-
 	height: 140px;
 	width: 140px;
-
 	float: left;
-
 	border: 1px solid #222;
 	font-size: 1.1em;
 	text-align: center;
 	background: #e1f6ff;
 	line-height: 26px;
 	font-weight: normal;
-
-
+	margin: 0px 14px 28px 14px;
 }
 
-	div.box i.icon-building, 
-	div.box i.icon-home {
-		float: left;
-		margin-left: 17px;
-	}
-	
-	div.box i.icon-user, 
-	div.box i.icon-group {
-		float: right;
-		margin-right: 17px;
-	}
-
-
-section {
-	display: block;
-	overflow: auto;
-	  	max-width: 510px;
-	  	
-  	margin-left: auto; 
-  	margin-right: auto; 
+i.left-icon  {
+	float: left;
+	margin-left: 17px;
 }
 
-footer {
-  	max-width: 510px;
-  	
-  	margin-left: auto; 
-  	margin-right: auto; 
+i.right-icon {
+	float: right;
+	margin-right: 17px;
 }
-
 
 a {
   color:#39c;
@@ -64,41 +45,8 @@ a {
   text-decoration:none;
 }
 
-a small {
-  font-size:11px;
-  color:#777;
-  margin-top:-0.6em;
-  display:block;
-}
-
-
-img {
-
-}
-
-
-@media print, screen and (max-width: 960px) {
-  
-
-}
-
-@media print, screen and (max-width: 720px) {
-
-}
-
-@media (max-device-width:283px) {
-	div.box {
-		margin: 0px auto 28px auto;
-	}
-}
-
-@media (min-device-width:283px) {
-	div.box {
-		margin: 0px 14px 28px 14px;
-	}
-}
-
-
-@media print {
-
+footer {
+  	max-width: 510px;
+  	margin-left: auto; 
+  	margin-right: auto; 
 }
