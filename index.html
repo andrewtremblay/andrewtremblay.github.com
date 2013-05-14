@@ -57,21 +57,22 @@
 //     document.getElementById('DEBUG_picCoord').innerHTML = picPosS; 
 //     var s = 'Mouse : X=' + mousePos.x +  '\t Y=' + mousePos.y ;
 //     document.getElementById('DEBUG_divCoord').innerHTML = s;
-		redetectScreenSize();
+		readjustByScreenSize();
  
 		HandlePicChange('myHead', mousePos);   
 	}  
 	
 	$(window).resize(function() {
-		redetectScreenSize();
+		readjustByScreenSize();
 	});
 	
-	function redetectScreenSize() {
+	function readjustByScreenSize() {
 	 	var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
  		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-        var s = 'Mouse : width=' + width +  '\t height=' + height ;
-	    
-	    document.getElementById('DEBUG_divCoord').innerHTML = s;
+	    if((width == 320) || (width == 480)){
+	    	//non-iOS 5 iPhone lanscape and portrait width
+	    	document.getElementById('myHeadBox').style.display = "none";
+	    }
 	}
 
 	
@@ -102,7 +103,7 @@
 	}
 	
 	function PageLoaded(){
-	
+		readjustByScreenSize();
 	}
 	</script>
 	<!-- End of Mouse Tracking -->
@@ -154,7 +155,7 @@
 			<i class="icon-user right-icon"></i>
 			</div></a>
 		</div>
-		<div class="box hide-iphone">
+		<div id="myHeadBox" class="box hide-iphone">
 			<a href="http://andrew-tremblay.com">
 				<div id="myHead" class="dynamic_image"></div>
 			</a>
