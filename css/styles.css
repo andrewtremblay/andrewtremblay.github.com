@@ -90,7 +90,7 @@ footer {
 
 
 .show-iphone {
-	display:none;
+	display:block;
 }
 
 @media only screen and ( (width: 480px) or (width: 320px) ) {
