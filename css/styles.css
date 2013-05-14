@@ -81,9 +81,13 @@ footer {
   /* rules for iPad in landscape orientation */
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 641px) {
   /* iPhone, Android rules here */
 	.hide-iphone {
+		display:none;
+	}
+	
+	.dynamic_image {
 		display:none;
 	}
 }
