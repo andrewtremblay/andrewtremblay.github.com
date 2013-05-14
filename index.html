@@ -31,51 +31,23 @@
 	document.onmousemove = mouseMove; 
 	function mouseMove(ev){ 
 		ev = ev || window.event; //firefox compatibility
-		var mousePos = mouseCoords(ev);
-		//do stuff with the mouse position
-		SetValues(mousePos);
-	} 
-	
-	function mouseCoords(ev){ 
-		if(ev.pageX || ev.pageY){ 
-		return {x:ev.pageX, y:ev.pageY}; 
-		} 
-		return { 
-		x:ev.clientX + document.body.scrollLeft - document.body.clientLeft, 
-		y:ev.clientY + document.body.scrollTop  - document.body.clientTop 
+		var mousePos = { 
+			x:ev.clientX + document.body.scrollLeft - document.body.clientLeft, 
+			y:ev.clientY + document.body.scrollTop  - document.body.clientTop 
 		};
+		if(ev.pageX || ev.pageY) { 
+			mousePos = {
+				x:ev.pageX, 
+				y:ev.pageY
+				}; 
+		} 
+		handleUpdatedMouseValues(mousePos);
 	} 
-	
-	function SetValues(mousePos){ 
-//     var picWrapper = document.getElementById('myHead');
-//     var picWrapperSize = {width:parseInt(picWrapper.style.width), height:parseInt(picWrapper.style.height)};
-//     var picPos = {
-//                 x:picWrapper.offsetLeft+picWrapperSize.width/2, 
-//                 y:picWrapper.offsetTop+picWrapperSize.height/2
-//                 };
-//     var picPosS = 'Picture : X=' + picPos.x +  '\t Y=' + picPos.y;
-//     document.getElementById('DEBUG_picCoord').innerHTML = picPosS; 
-//     var s = 'Mouse : X=' + mousePos.x +  '\t Y=' + mousePos.y ;
-//     document.getElementById('DEBUG_divCoord').innerHTML = s;
-		readjustByScreenSize();
- 
+		
+	function handleUpdatedMouseValues(mousePos){ 
 		HandlePicChange('myHead', mousePos);   
 	}  
-	
-	$(window).resize(function() {
-		readjustByScreenSize();
-	});
-	
-	function readjustByScreenSize() {
-	 	var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
- 		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-	    if((width == 320) || (width == 480)){
-	    	//non-iOS 5 iPhone lanscape and portrait width
-	    	document.getElementById('myHeadBox').style.display = "none";
-	    }
-	}
 
-	
 	
 	//image layout referencenum_xref_yref.png
 	//xref = {left right straight}
@@ -102,16 +74,31 @@
 		picWrapper.style.backgroundImage = "url('"+picImageURL+"')";  //set your finished url to the background
 	}
 	
-	function PageLoaded(){
+	function onPageDidLoad() {
 		readjustByScreenSize();
 	}
+	
+	$(window).resize(function() {
+		readjustByScreenSize();
+	});
+	
+	function readjustByScreenSize() {
+	 	var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+ 		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+	    if((width == 320) || (width == 480)){
+	    	//non-iOS 5 iPhone lanscape and portrait width
+	    	document.getElementById('myHeadBox').style.display = "none";
+	    }
+	}
+
+
 	</script>
 	<!-- End of Mouse Tracking -->
   </head>
-  <body onmousemove=SetValues(event) onload=PageLoaded()>
+  <body onmousemove=handleUpdatedMouseValues(event) onload=onPageDidLoad()>
     <div id="DEBUG_divCoord"></div>
 	<div id="DEBUG_picCoord"></div>
-	<section>
+	<section id="project-data">
 		<div class="box">
 			<a href="https://github.com/andrewtremblay/AugmentedMoney"><div style="width:100%;height:100%;">
 			<br/>
