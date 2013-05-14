@@ -66,7 +66,7 @@
 	//yref = up down straight
 	function HandlePicChange(picWrapperId, mousePos){ 
 		var picWrapper = document.getElementById(picWrapperId);
-		var picSize = {width:parseInt(picWrapper.style.width), height:parseInt(picWrapper.style.height)};
+		var picSize = {width:140, height:140};
 		var picPos = {x:picWrapper.offsetLeft+picSize.width/2,  y:picWrapper.offsetTop+picSize.height/2};
 		var picImageURL = 'images/test_img/0001';  //start with the base name of your url
 		if((picPos.x - picSize.width/2) > mousePos.x) {
@@ -139,9 +139,9 @@
 			<i class="icon-user right-icon"></i>
 			</div></a>
 		</div>
-		<div class="hide-iphone box" style="background: #fff;">
+		<div class="box hide-iphone">
 			<a href="http://andrew-tremblay.com">
-				<div id="myHead" style="background:#889;width:140px;height:140px;margin:0px 0px;background-size:140px 140px;background-repeat:no-repeat;"></div>
+				<div id="myHead" class="dynamic_image"></div>
 			</a>
 		</div>
 		<div class="box">

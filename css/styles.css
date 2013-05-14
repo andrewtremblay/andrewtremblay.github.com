@@ -38,6 +38,17 @@ div #myHead {
 	width: 140px;
 }
 
+.dynamic_image {
+	width:140px;
+	height:140px;
+
+	margin:0px 0px;
+
+	background:#889;
+	background-size:140px 140px;
+	background-repeat:no-repeat;
+}
+
 i.left-icon  {
 	float: left;
 	margin-left: 17px;
