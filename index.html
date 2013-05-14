@@ -57,8 +57,23 @@
 //     document.getElementById('DEBUG_picCoord').innerHTML = picPosS; 
 //     var s = 'Mouse : X=' + mousePos.x +  '\t Y=' + mousePos.y ;
 //     document.getElementById('DEBUG_divCoord').innerHTML = s;
+		redetectScreenSize();
+ 
 		HandlePicChange('myHead', mousePos);   
 	}  
+	
+	$(window).resize(function() {
+		redetectScreenSize();
+	});
+	
+	function redetectScreenSize() {
+	 	var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+ 		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+        var s = 'Mouse : width=' + width +  '\t height=' + height ;
+	    
+	    document.getElementById('DEBUG_divCoord').innerHTML = s;
+	}
+
 	
 	
 	//image layout referencenum_xref_yref.png
