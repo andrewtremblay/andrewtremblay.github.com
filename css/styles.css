@@ -5,6 +5,7 @@ body {
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
+  min-height:401px;
 }
 
 section {
@@ -81,11 +82,12 @@ footer {
     position: fixed;
     right: 15px;
     top: 11px;
-    width: 20px;
+    width: 41px;
 }
 
 .right-edge > div  {
 	text-align:center;
+	font-size: 33px;
 }
 
 
