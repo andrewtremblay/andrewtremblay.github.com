@@ -29,6 +29,15 @@ div.box {
 	margin: 0px 14px 28px 14px;
 }
 
+div.box :hover {
+	background: #c8eeff;
+}
+
+div #myHead {
+	height: 140px;
+	width: 140px;
+}
+
 i.left-icon  {
 	float: left;
 	margin-left: 17px;
@@ -45,8 +54,24 @@ a {
   text-decoration:none;
 }
 
+a :hover {
+  color:rgba(0, 70, 102, 0.69);
+  font-weight:440;
+}
+
+
 footer {
   	max-width: 510px;
   	margin-left: auto; 
   	margin-right: auto; 
+}
+
+@media handheld {
+footer {
+	display:none;
+}
+
+div #myHead {
+	display:none;
+}
 }
