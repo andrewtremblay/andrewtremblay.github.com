@@ -92,6 +92,35 @@
 	}
 
 
+	function filter(a) {
+		var icon_class = a.getElementsByTagName('i')[0].className.split(' ')[0];
+		//filter the list to bold the filtered element 
+		var filter_elms = a.parentNode.parentNode.getElementsByTagName('div');
+		for (var i = 0; i < filter_elms.length; ++i) {
+				var filter_link = filter_elms[i].getElementsByTagName('a')[0];
+				filter_link.style.color = "#39c";
+				filter_link.style.fontSize = "1.em";
+		}
+		a.style.color = "#222";
+		a.style.font-size = "1.1em";
+
+		//filter the div dat that has the same actual icons
+		var projects_section = document.getElementById('project-data');
+		var elms = projects_section.querySelectorAll('i');
+		for (var i = 0; i < elms.length; ++i) 
+		{
+			if('icon-filter' == icon_class || (elms[i].className.split(' ')[0] == icon_class)) {
+		    	elms[i].parentNode.parentNode.parentNode.style.display = "block";
+		    	if(elms[i].className.split(' ')[1] == 'left-icon'){
+			    	i++;
+			    	}
+			} 
+			else {
+				elms[i].parentNode.parentNode.parentNode.style.display = "none";
+	    	}
+		}
+	}
+
 	</script>
 	<!-- End of Mouse Tracking -->
   </head>
@@ -180,6 +209,16 @@
 			<i class="icon-group right-icon"></i>
 			</div></a>
 		</div>
+	</section>
+	<section class="show-iphone right-edge">
+		<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a></div>
+		<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a></div>
+		<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a></div>
+		<div ><a onclick="filter(this);" href="#"><i class="icon-user"></i></a></div>
+		<div ><a onclick="filter(this);" href="#"><i class="icon-group"></i></a></div>
+		<div ><a onclick="filter(this);" href="#"><i class="icon-gamepad"></i></a></div>
+		<div ><a onclick="filter(this);" href="#"><i class="icon-bar-chart"></i></a></div>
+		<div ><a onclick="filter(this);" href="#"><i class="icon-code-fork"></i></a></div>
 	</section>
 	<footer class="hide-iphone">
 		<center> <p>Work <i class="icon-building"></i> &mdash; Home <i class="icon-home"></i> &mdash; Solo  <i class="icon-user"></i> &mdash; Group <i class="icon-group"></i></p> </center>
