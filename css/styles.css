@@ -66,12 +66,12 @@ footer {
   	margin-right: auto; 
 }
 
-@media handheld {
-footer {
-	display:none;
-}
+@media (screen and (device-aspect-ratio: 40/71)) or (screen and (device-aspect-ratio: 2/3)) {
+	div #myHead {
+		display:none;
+	}
 
-div #myHead {
-	display:none;
-}
+	footer {
+		display:none;
+	}
 }
