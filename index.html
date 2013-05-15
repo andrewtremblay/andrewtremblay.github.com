@@ -85,10 +85,17 @@
 	function readjustByScreenSize() {
 	 	var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
  		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-	    if((width == 320) || (width == 480)){
-	    	//non-iOS 5 iPhone lanscape and portrait width
-	    	document.getElementById('myHeadBox').style.display = "none";
-	    }
+	    var hideIphoneDisplay = ((width == 320) || (width == 480)) ? "none" : "block";
+	    var showIphoneDisplay = ((width == 320) || (width == 480)) ? "block" : "none";
+		//non-iOS 5 iPhone lanscape and portrait width
+		var hideIphoneElms = document.getElementsById('hideIphone');
+		for(var i = 0; i < hideIphoneElms.length; ++i) { 
+			hideIphoneElms[i].style.display = hideIphoneDisplay;
+		}
+		var showIphoneElms = document.getElementsById('showIphone');
+		for(var i = 0; i < showIphoneElms.length; ++i) { 
+			hideIphoneElms[i].style.display = showIphoneDisplay;
+		}
 	}
 
 
@@ -127,7 +134,7 @@
   <body onmousemove=handleUpdatedMouseValues(event) onload=onPageDidLoad()>
     <div id="DEBUG_divCoord"></div>
 	<div id="DEBUG_picCoord"></div>
-	<div class="show-iphone right-edge">
+	<div class="right-edge" id="showiPhone">
 		<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a></div>
 		<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a></div>
 		<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a></div>
@@ -181,7 +188,7 @@
 			<i class="icon-user right-icon"></i>
 			</div></a>
 		</div>
-		<div id="myHeadBox" class="box hide-iphone">
+		<div id="hideIphone" class="box hide-iphone">
 			<a href="http://andrew-tremblay.com">
 				<div id="myHead" class="dynamic_image"></div>
 			</a>
@@ -220,7 +227,7 @@
 			</div></a>
 		</div>
 	</section>
-	<footer class="hide-iphone">
+	<footer class="hide-iphone" id="hideIphone">
 		<center> <p>Work <i class="icon-building"></i> &mdash; Home <i class="icon-home"></i> &mdash; Solo  <i class="icon-user"></i> &mdash; Group <i class="icon-group"></i></p> </center>
 	</footer>
     <script src="js/scale.fix.js"></script>

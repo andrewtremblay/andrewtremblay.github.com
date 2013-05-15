@@ -101,13 +101,15 @@ footer {
 }
 
 
-.show-iphone {
+.hide-iphone {
 	display:block;
 }
-
+.show-iphone {
+	display:none;
+}
 @media only screen and ( (width: 480px) or (width: 320px) ) {
 	.hide-iphone {
-		display:none;
+	display:none;
 	}
 	.show-iphone {
 		display:block;
