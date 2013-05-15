@@ -1,16 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
+
 body {
   padding:50px;
+  padding-bottom: 12px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
-  min-height:401px;
+
+   min-width:300px;
+   width: auto !important;  /* Firefox will set width as auto */
+   width:100px;             /* As IE ignores !important it will set width as 1000px; */
+
 }
 
 section {
 	display: block;
-	overflow: auto;
+	overflow: hidden;
+	max-height: 100%;
 	max-width: 510px;  	
   	margin-left: auto; 
   	margin-right: auto; 
@@ -80,9 +87,12 @@ footer {
 
 .right-edge {
     position: fixed;
-    right: 15px;
-    top: 11px;
-    width: 41px;
+    right: 0px;
+    top: 0px;
+	width: 65px;
+
+	max-height: 100%;
+	overflow-y: auto;
 }
 
 .right-edge > div  {
