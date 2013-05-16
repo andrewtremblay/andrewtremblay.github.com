@@ -75,37 +75,12 @@
 	}
 	
 	function onPageDidLoad() {
-		readjustByScreenSize();
+		var picWrapper = document.getElementById(picWrapperId);
+		var picSize = {width:140, height:140};
+		var picPos = {x:picWrapper.offsetLeft+picSize.width/2,  y:picWrapper.offsetTop+picSize.height/2};
+		handleUpdatedMouseValues(picPos);
 	}
 	
-	$(window).resize(function() {
-		readjustByScreenSize();
-	});
-	
-	function readjustByScreenSize() {
-	 	var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
- 		var height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
-	    if((width == 320) || (width == 480)){
-	    	//non-iOS 5 iPhone lanscape and portrait width
-	    	var hideIphoneElms = document.getElementsById('hideIphone');
-	    	for(var i = 0; i < hideIphoneElms.length; ++i) { 
-	    		hideIphoneElms[i].style.display = "none";
-	    	}
-	    	var showIphoneElms = document.getElementsById('showIphone');
-	    	for(var i = 0; i < showIphoneElms.length; ++i) { 
-	    		hideIphoneElms[i].style.display = "block";
-	    	}
-	    }else{
-	    	var hideIphoneElms = document.getElementsById('hideIphone');
-	    	for(var i = 0; i < hideIphoneElms.length; ++i) { 
-	    		hideIphoneElms[i].style.display = "block";
-	    	}
-	    	var showIphoneElms = document.getElementsById('showIphone');
-	    	for(var i = 0; i < showIphoneElms.length; ++i) { 
-	    		hideIphoneElms[i].style.display = "none";
-	    	}
-	    }
-	}
 
 
 	function filter(a) {
@@ -141,9 +116,7 @@
 	<!-- End of Mouse Tracking -->
   </head>
   <body onmousemove=handleUpdatedMouseValues(event) onload=onPageDidLoad()>
-    <div id="DEBUG_divCoord"></div>
-	<div id="DEBUG_picCoord"></div>
-	<div class="show-iphone right-edge">
+	<div class="visible-phone right-edge">
 		<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a></div>
 		<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a></div>
 		<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a></div>
@@ -197,7 +170,7 @@
 			<i class="icon-user right-icon"></i>
 			</div></a>
 		</div>
-		<div id="myHeadBox" class="box hide-iphone">
+		<div id="myHeadBox" class="box hidden-desktop">
 			<a href="http://andrew-tremblay.com">
 				<div id="myHead" class="dynamic_image"></div>
 			</a>
@@ -236,7 +209,7 @@
 			</div></a>
 		</div>
 	</section>
-	<footer class="hide-iphone">
+	<footer class="hidden-phone">
 		<center> <p>Work <i class="icon-building"></i> &mdash; Home <i class="icon-home"></i> &mdash; Solo  <i class="icon-user"></i> &mdash; Group <i class="icon-group"></i></p> </center>
 	</footer>
     <script src="js/scale.fix.js"></script>
