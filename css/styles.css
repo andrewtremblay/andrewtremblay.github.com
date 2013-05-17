@@ -85,6 +85,11 @@ footer {
   	margin-right: auto; 
 }
 
+td {
+  	text-align: center;
+}
+
+
 .right-edge {
     position: fixed;
     right: 0px;
