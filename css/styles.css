@@ -1,13 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
-
 body {
   padding:50px;
   padding-bottom: 12px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
-
    min-width:200px;
    width: auto !important;  /* Firefox will set width as auto */
    width:100px;             /* As IE ignores !important it will set width as 1000px; */
@@ -59,9 +57,7 @@ div.dynamic_image :hover {
 .dynamic_image {
 	width:140px;
 	height:140px;
-
 	margin:0px 0px;
-
 	background:#889;
 	background-size:140px 140px;
 	background-repeat:no-repeat;
@@ -84,21 +80,9 @@ a {
 }
 
 a :hover {
-  color:rgba(0, 70, 102, 0.69);
+  color:#004666;
   font-weight:440;
 }
-
-
-footer {
-  	max-width: 510px;
-  	margin-left: auto; 
-  	margin-right: auto; 
-}
-
-td {
-  	text-align: center;
-}
-
 
 .filter-menu {
     position: absolute;
