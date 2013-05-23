@@ -8,7 +8,7 @@ body {
   color:#777;
   font-weight:300;
 
-   min-width:300px;
+   min-width:200px;
    width: auto !important;  /* Firefox will set width as auto */
    width:100px;             /* As IE ignores !important it will set width as 1000px; */
 
