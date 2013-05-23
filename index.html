@@ -3,17 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
     <title>andrewtremblay.github.io</title>
     <link rel="stylesheet" href="css/styles.css">
-    
-      <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
 	  <!--[if IE 7]>
   		<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
   	  <![endif]-->
-
-    
     <link rel="stylesheet" href="css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -27,9 +23,12 @@
 	  ga('send', 'pageview');
 	</script>
 	<!-- End Google Analytics -->
-
-	<!-- Mouse Tracking 
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <script src="js/scale.fix.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<!-- Mouse Tracking --> 
 	<script type="text/javascript">
+	/*
 	document.onmousemove = mouseMove; 
 	function mouseMove(ev){ 
 		ev = ev || window.event; //firefox compatibility
@@ -75,16 +74,9 @@
 		}
 		picWrapper.style.backgroundImage = "url('"+picImageURL+"')";  //set your finished url to the background
 	}
+	 	End of Mouse Tracking -->
+	*/ 
 	
-	function onPageDidLoad() {
-		var picWrapper = document.getElementById('myHead');
-		var picSize = {width:140, height:140};
-		var picPos = {x:picWrapper.offsetLeft+picSize.width/2,  y:picWrapper.offsetTop+picSize.height/2};
-		handleUpdatedMouseValues(picPos);
-	}
-	
-
-
 	function filter(a) {
 		var icon_class = a.getElementsByTagName('i')[0].className.split(' ')[0];
 		//filter the list to bold the filtered element 
@@ -114,19 +106,30 @@
 		}
 	}
 
+
+	function onPageDidLoad() {
+		var picWrapper = document.getElementById('myHead');
+		var picSize = {width:140, height:140};
+		var picPos = {x:picWrapper.offsetLeft+picSize.width/2,  y:picWrapper.offsetTop+picSize.height/2};
+		//handleUpdatedMouseValues(picPos);
+	}
+	
+	
+
 	</script>
-	End of Mouse Tracking -->
   </head>
   <body onmousemove=handleUpdatedMouseValues(event) onload=onPageDidLoad()>
-	<div class="visible-phone right-edge">
-		<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a></div>
-		<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a></div>
-		<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a></div>
-		<div ><a onclick="filter(this);" href="#"><i class="icon-user"></i></a></div>
-		<div ><a onclick="filter(this);" href="#"><i class="icon-group"></i></a></div>
-		<div ><a onclick="filter(this);" href="#"><i class="icon-gamepad"></i></a></div>
-		<div ><a onclick="filter(this);" href="#"><i class="icon-bar-chart"></i></a></div>
-		<div ><a onclick="filter(this);" href="#"><i class="icon-code-fork"></i></a></div>
+	<div class="filter-menu">
+		<div class="filter-menu-content">
+			<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-user"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-group"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-gamepad"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-bar-chart"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-code-fork"></i></a></div>
+		</div>
 	</div>
 	<section id="project-data">
 		<div class="box blue_box_link">
@@ -211,31 +214,5 @@
 			</div></a>
 		</div>
 	</section>
-	<footer class="hidden-phone">
-		<center>
-		<table><tbody>
-		<tr>
-			<td><i class="icon-building"></i><br/>Work</td>
-			<td>&mdash;</td>
-			<td><i class="icon-home"></i><br/>Home</td>
-			<td>&mdash;</td>
-			<td><i class="icon-user"></i><br/>Solo</td>
-			<td>&mdash;</td>
-			<td><i class="icon-group"></i><br/>Group</td>
-		</tr>
-		<tr>
-			<td><i class="icon-gamepad"></i><br/>Gamed<br/></td>
-			<td>&mdash;</td>
-			<td><i class="icon-bar-chart"></i><br/>Graphed<br/>
-			</td><td>&mdash;</td>
-			<td><i class="icon-money"></i><br/>Augmented<br/>
-			</td><td>&mdash;</td>
-			<td><i class="icon-code-fork"></i><br/>Github'd<br/></td>
-		</tr>
-		</tbody><table>
-		</center>
-	</footer>
-    <script src="js/scale.fix.js"></script>
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
