@@ -78,7 +78,7 @@
 	
 	function filter(a) {
 		var filtered_icon_class = a.getElementsByTagName('i')[0].className.split(' ')[0];
-		//filter the list to bold the filtered element 
+
 		var filter_elms = a.parentNode.parentNode.getElementsByTagName('div');
 		for (var i = 0; i < filter_elms.length; ++i) {
 				var filter_link = filter_elms[i].getElementsByTagName('a')[0];
@@ -88,12 +88,13 @@
 		a.style.color = "#44507F";
 		a.style.fontSize = "1.1em";
 
-		//the filter & 'filter by' button title have special conditions 
+		//the filter link & title have special conditions 
+		var filter_btn_link = document.getElementById('filterBtnLink');
+		filter_btn_link.style.fontSize = "1.1em";
 		var filter_btn_title = document.getElementById('filterBtnTitle');
 		if('icon-filter' == filtered_icon_class){
 			filter_btn_title.innerHTML = "filter by:";
 			a.style.color = "#39c";
-			a.style.fontSize = "1em";
 		}else{
 			filter_btn_title.innerHTML = "clear";
 		}
@@ -143,7 +144,7 @@
   	</div>
 	<div class="filter-menu">
 		<div class="filter-menu-content">
-			<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a><p class="filter-title" id="filterBtnTitle">filter by:</p></div>
+			<div ><a onclick="filter(this);" href="#" style="font-size:1.1em;" id="filterBtnLink"><i class="icon-filter"></i></a><p class="filter-title" id="filterBtnTitle">filter by:</p></div>
 			<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a><p class="filter-title">work</p></div>
 			<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a><p class="filter-title">personal</p></div>
 			<div ><a onclick="filter(this);" href="#"><i class="icon-user"></i></a><p class="filter-title">solo</p></div>
