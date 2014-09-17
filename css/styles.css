@@ -163,3 +163,20 @@ a :hover {
 	  	margin-top:0px; 
 	}
 }
+
+/* iPhone 4S (landscape) */
+@media screen and (min-width: 321px) 
+{
+	body {
+		padding-left: 70px;
+	}
+}
+
+/* iPhone 4S (portrait) */
+@media screen and (max-width: 320px) /* < 320px wide */
+{
+	body {
+		padding-left: 45px;
+		padding-right: 0px;
+	}
+}
