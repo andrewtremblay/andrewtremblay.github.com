@@ -7,9 +7,6 @@
     <title>andrewtremblay.github.io</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/font-awesome.css">
-	  <!--[if IE 7]>
-  		<link rel="stylesheet" href="css/font-awesome-ie7.min.css">
-  	  <![endif]-->
     <link rel="stylesheet" href="css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -92,7 +89,7 @@
 		var filter_btn_link = document.getElementById('filterBtnLink');
 		filter_btn_link.style.fontSize = "1.1em";
 		var filter_btn_title = document.getElementById('filterBtnTitle');
-		if('icon-filter' == filtered_icon_class){
+		if('fa-filter' == filtered_icon_class){
 			filter_btn_title.innerHTML = "filter by:";
 			a.style.color = "#39c";
 		}else{
@@ -104,7 +101,7 @@
 		var project_elms = projects_section.querySelectorAll('a');
 		for (var i = 0; i < project_elms.length; ++i){
 			var project_elm = project_elms[i];
-			if('icon-filter' == filtered_icon_class){
+			if('fa-filter' == filtered_icon_class){
 				project_elm.parentNode.style.display = "block";
 		    }else {
 		    	var filterFound = false;
@@ -144,14 +141,14 @@
   	</div>
 	<div class="filter-menu">
 		<div class="filter-menu-content">
-			<div ><a onclick="filter(this);" href="#" style="font-size:1.1em;" id="filterBtnLink"><i class="icon-filter"></i></a><p class="filter-title" id="filterBtnTitle">filter by:</p></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a><p class="filter-title">work</p></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a><p class="filter-title">personal</p></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-user"></i></a><p class="filter-title">solo</p></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-group"></i></a><p class="filter-title">group</p></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-gamepad"></i></a><p class="filter-title">games</p></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-bar-chart"></i></a><p class="filter-title">data viz</p></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-code-fork"></i></a><p class="filter-title">forked</p></div>
+			<div ><a onclick="filter(this);" href="#" style="font-size:1.1em;" id="filterBtnLink"><i class="fa-filter fa"></i></a><p class="filter-title" id="filterBtnTitle">filter by:</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="fa-building-o fa"></i></a><p class="filter-title">work</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="fa-home fa"></i></a><p class="filter-title">personal</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="fa-user fa"></i></a><p class="filter-title">solo</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="fa-group fa"></i></a><p class="filter-title">group</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="fa-gamepad fa"></i></a><p class="filter-title">games</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="fa-bar-chart fa"></i></a><p class="filter-title">data viz</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="fa-code-fork fa"></i></a><p class="filter-title">forked</p></div>
 		</div>
 	</div>
 	<section id="project-data">
@@ -159,18 +156,18 @@
 			<a href="https://github.com/andrewtremblay/AugmentedMoney"><div style="width:100%;height:100%;">
 			<br/>
 			<p>Augmented Reality Money Camera</p>
-			<i class="icon-home left-icon"></i> 
-			<i class="icon-money center-icon"></i> 
-			<i class="icon-user right-icon"></i>
+			<i class="fa-home left-icon fa"></i> 
+			<i class="fa-money center-icon fa"></i> 
+			<i class="fa-user right-icon fa"></i>
 			</div></a>
 		</div>
 		<div class="box blue_box_link">
 			<a href="https://github.com/andrewtremblay/bos-transit-inequality"><div style="width:100%;height:100%;">
 			<br/>
 			<p>Boston Map of Income Inequality</p>
-			<i class="icon-home left-icon"></i> 
-			<i class="icon-bar-chart center-icon"></i> 
-			<i class="icon-code-fork right-icon"></i>
+			<i class="fa-home left-icon fa"></i> 
+			<i class="fa-bar-chart center-icon fa"></i> 
+			<i class="fa-code-fork right-icon fa"></i>
 			</div></a>
 		</div>
 		<div class="box blue_box_link">
@@ -178,9 +175,9 @@
 			<br/>
 			<p>GeoGrow</p>
 			<br/>
-			<i class="icon-home left-icon"></i> 
-			<i class="icon-gamepad center-icon"></i> 
-			<i class="icon-group right-icon"></i>
+			<i class="fa-home left-icon fa"></i> 
+			<i class="fa-gamepad center-icon fa"></i> 
+			<i class="fa-group right-icon fa"></i>
 			</div></a>
 		</div>
 		<div class="box blue_box_link">
@@ -188,9 +185,9 @@
 			<br/>
 			<p>Prime Numbers</p>
 			<br/>
-			<i class="icon-home left-icon"></i> 
-			<i class="icon-bar-chart center-icon"></i>
-			<i class="icon-user right-icon"></i>
+			<i class="fa-home left-icon fa"></i> 
+			<i class="fa-bar-chart center-icon fa"></i>
+			<i class="fa-user right-icon fa"></i>
 			</div></a>
 		</div>
 		<div class="box blue_box_link">
@@ -198,7 +195,7 @@
 			<div style="width:100%;height:100%;">
 			<br/>
 			<p>AppBlade <br/>dotcom</p>
-			<i class="icon-building left-icon"></i> <i class="icon-group right-icon"></i>
+			<i class="fa-building-o left-icon fa"></i> <i class="fa-group right-icon fa"></i>
 			</div>
 			</a>
 		</div>
@@ -206,25 +203,37 @@
 			<a href="https://github.com/AppBlade/SDK"><div style="width:100%;height:100%;">
 			<br/>
 			<p>AppBlade <br/>SDK</p>
-			<i class="icon-building left-icon"></i> 
-			<i class="icon-group right-icon"></i>
+			<i class="fa-building-o left-icon fa"></i> 
+			<i class="fa-group right-icon fa"></i>
 			</div></a>
 		</div>
 		<div class="box blue_box_link">
 			<a href="https://github.com/AppBlade/SDK-Unity-Plugin"><div style="width:100%;height:100%;">
 			<br/>
 			<p>AppBlade <br/>Unity</p>
-			<i class="icon-building left-icon"></i> 
-			<i class="icon-user right-icon"></i>
+			<i class="fa-building-o left-icon fa"></i> 
+			<i class="fa-user right-icon fa"></i>
 			</div></a>
 		</div>
 		<div class="box blue_box_link">
 			<a href="https://github.com/AppBlade/SDK-PhoneGap-Plugin"><div style="width:100%;height:100%;">
 			<br/>
 			<p>AppBlade <br/>PhoneGap</p>
-			<i class="icon-building left-icon"></i> 
-			<i class="icon-group right-icon"></i>
+			<i class="fa-building-o left-icon fa"></i> 
+			<i class="fa-group right-icon fa"></i>
 			</div></a>
+		</div>
+		<div class="box blue_box_link">
+			<a href="https://github.com/andrewtremblay/andrewtremblay.github.com">
+			<div style="width:100%;height:100%;">
+			<br/>
+			<p>This Website</p>
+			<br/>
+			<i class="fa-home left-icon fa"></i> 
+			<i class="fa-compass center-icon fa"></i>
+			<i class="fa-user right-icon fa"></i>
+			</div>
+			</a>
 		</div>
 		<div id="myHeadBox" class="box blue_box_link"> <!-- hidden-phone -->
 			<a href="http://andrew-tremblay.com">
