@@ -75,6 +75,12 @@ i.right-icon {
 	margin-right: 17px;
 }
 
+i.center-icon {
+	float: left;
+	margin-left: 31px;
+}
+
+
 a {
   color:#39c;
   font-weight:400;

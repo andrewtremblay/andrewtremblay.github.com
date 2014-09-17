@@ -78,7 +78,7 @@
 	*/ 
 	
 	function filter(a) {
-		var icon_class = a.getElementsByTagName('i')[0].className.split(' ')[0];
+		var filtered_icon_class = a.getElementsByTagName('i')[0].className.split(' ')[0];
 		//filter the list to bold the filtered element 
 		var filter_elms = a.parentNode.parentNode.getElementsByTagName('div');
 		for (var i = 0; i < filter_elms.length; ++i) {
@@ -91,7 +91,7 @@
 
 		//the filter & 'filter by' button title have special conditions 
 		var filter_btn_title = document.getElementById('filterBtnTitle');
-		if('icon-filter' == icon_class){
+		if('icon-filter' == filtered_icon_class){
 			filter_btn_title.innerHTML = "filter by:";
 			a.style.color = "#39c";
 			a.style.fontSize = "1em";
@@ -101,19 +101,27 @@
 
 		//filter the div visibility that has the same actual icons
 		var projects_section = document.getElementById('project-data');
-		var elms = projects_section.querySelectorAll('i');
-		for (var i = 0; i < elms.length; ++i) 
-		{
-			//walk the superviews OH MOMMA YOU RAISED A FOOL
-			if('icon-filter' == icon_class || (elms[i].className.split(' ')[0] == icon_class)) {
-		    	elms[i].parentNode.parentNode.parentNode.style.display = "block";
-		    	if(elms[i].className.split(' ')[1] == 'left-icon') {
-			    	i++;
-			    }
-			} 
-			else {
-				elms[i].parentNode.parentNode.parentNode.style.display = "none";
-	    	}
+		var project_elms = projects_section.querySelectorAll('a');
+		for (var i = 0; i < project_elms.length; ++i){
+			var project_elm = project_elms[i];
+			if('icon-filter' == filtered_icon_class){
+				project_elm.parentNode.style.display = "block";
+		    }else {
+		    	var filterFound = false;
+				var project_icon_elms = project_elm.querySelectorAll('i');
+				for (var j = 0; j < project_icon_elms.length; ++j){
+					var icon_class = project_icon_elms[j].className.split(' ')[0]; 
+					if(icon_class == filtered_icon_class){
+						filterFound = true;
+						break;
+					} 
+				}
+				if(filterFound){
+					project_elm.parentNode.style.display = "block";
+				}else{
+					project_elm.parentNode.style.display = "none";
+				}
+		    } 
 		}
 		
 	}
@@ -151,7 +159,8 @@
 			<a href="https://github.com/andrewtremblay/AugmentedMoney"><div style="width:100%;height:100%;">
 			<br/>
 			<p>Augmented Reality Money Camera</p>
-			<i class="icon-money left-icon"></i> 
+			<i class="icon-home left-icon"></i> 
+			<i class="icon-money center-icon"></i> 
 			<i class="icon-user right-icon"></i>
 			</div></a>
 		</div>
@@ -159,7 +168,8 @@
 			<a href="https://github.com/andrewtremblay/bos-transit-inequality"><div style="width:100%;height:100%;">
 			<br/>
 			<p>Boston Map of Income Inequality</p>
-			<i class="icon-bar-chart left-icon"></i> 
+			<i class="icon-home left-icon"></i> 
+			<i class="icon-bar-chart center-icon"></i> 
 			<i class="icon-code-fork right-icon"></i>
 			</div></a>
 		</div>
@@ -168,7 +178,8 @@
 			<br/>
 			<p>GeoGrow</p>
 			<br/>
-			<i class="icon-gamepad left-icon"></i> 
+			<i class="icon-home left-icon"></i> 
+			<i class="icon-gamepad center-icon"></i> 
 			<i class="icon-group right-icon"></i>
 			</div></a>
 		</div>
@@ -178,22 +189,9 @@
 			<p>Prime Numbers</p>
 			<br/>
 			<i class="icon-home left-icon"></i> 
+			<i class="icon-bar-chart center-icon"></i>
 			<i class="icon-user right-icon"></i>
 			</div></a>
-		</div>
-		<div class="box blue_box_link">
-			<a href="https://github.com/andrewtremblay/NodeGraphtastic"><div style="width:100%;height:100%;">
-			<br/>
-			<p>NodeGraphtastic</p>
-			<br/>
-			<i class="icon-home left-icon"></i> 
-			<i class="icon-user right-icon"></i>
-			</div></a>
-		</div>
-		<div id="myHeadBox" class="box blue_box_link"> <!-- hidden-phone -->
-			<a href="http://andrew-tremblay.com">
-				<div id="myHead" class="blue_box_link dynamic_image"></div>
-			</a>
 		</div>
 		<div class="box blue_box_link">
 			<a href="https://Appblade.com">
@@ -227,6 +225,11 @@
 			<i class="icon-building left-icon"></i> 
 			<i class="icon-group right-icon"></i>
 			</div></a>
+		</div>
+		<div id="myHeadBox" class="box blue_box_link"> <!-- hidden-phone -->
+			<a href="http://andrew-tremblay.com">
+				<div id="myHead" class="blue_box_link dynamic_image"></div>
+			</a>
 		</div>
 	</section>
   </body>
