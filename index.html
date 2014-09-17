@@ -89,21 +89,33 @@
 		a.style.color = "#44507F";
 		a.style.fontSize = "1.1em";
 
-		//filter the div dat that has the same actual icons
+		//the filter & 'filter by' button title have special conditions 
+		var filter_btn_title = document.getElementById('filterBtnTitle');
+		if('icon-filter' == icon_class){
+			filter_btn_title.innerHTML = "filter by:";
+			a.style.color = "#39c";
+			a.style.fontSize = "1em";
+		}else{
+			filter_btn_title.innerHTML = "clear";
+		}
+
+		//filter the div visibility that has the same actual icons
 		var projects_section = document.getElementById('project-data');
 		var elms = projects_section.querySelectorAll('i');
 		for (var i = 0; i < elms.length; ++i) 
 		{
+			//walk the superviews OH MOMMA YOU RAISED A FOOL
 			if('icon-filter' == icon_class || (elms[i].className.split(' ')[0] == icon_class)) {
 		    	elms[i].parentNode.parentNode.parentNode.style.display = "block";
-		    	if(elms[i].className.split(' ')[1] == 'left-icon'){
+		    	if(elms[i].className.split(' ')[1] == 'left-icon') {
 			    	i++;
-			    	}
+			    }
 			} 
 			else {
 				elms[i].parentNode.parentNode.parentNode.style.display = "none";
 	    	}
 		}
+		
 	}
 
 
@@ -119,16 +131,19 @@
 	</script>
   </head>
   <body onmousemove=handleUpdatedMouseValues(event) onload=onPageDidLoad()>
+  	<div class="header">
+  		<p>Andrew Tremblay</p>
+  	</div>
 	<div class="filter-menu">
 		<div class="filter-menu-content">
-			<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-user"></i></a></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-group"></i></a></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-gamepad"></i></a></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-bar-chart"></i></a></div>
-			<div ><a onclick="filter(this);" href="#"><i class="icon-code-fork"></i></a></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-filter"></i></a><p class="filter-title" id="filterBtnTitle">filter by:</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-building"></i></a><p class="filter-title">work</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-home"></i></a><p class="filter-title">personal</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-user"></i></a><p class="filter-title">solo</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-group"></i></a><p class="filter-title">group</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-gamepad"></i></a><p class="filter-title">games</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-bar-chart"></i></a><p class="filter-title">data viz</p></div>
+			<div ><a onclick="filter(this);" href="#"><i class="icon-code-fork"></i></a><p class="filter-title">forked</p></div>
 		</div>
 	</div>
 	<section id="project-data">
